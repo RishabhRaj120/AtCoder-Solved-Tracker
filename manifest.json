@@ -26,7 +26,8 @@
     "contextMenus"
   ],
   "host_permissions": [
-    "https://atcoder.jp/*"
+    "https://atcoder.jp/*",
+    "https://kenkoooo.com/*"
   ],
   "content_scripts": [
     {
