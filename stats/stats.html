@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Statistics - AtCoder Solved Tracker</title>
+  <link rel="stylesheet" href="stats.css">
+  <script src="../assets/chart.umd.js"></script>
+</head>
+<body>
+  <div class="container">
+    <h2>AtCoder Tracker Statistics</h2>
+    
+    <div class="summary-cards">
+      <div class="card">
+        <h3>Total Solved</h3>
+        <div class="card-value solved" id="total-solved">0</div>
+      </div>
+      <div class="card">
+        <h3>Total Attempted</h3>
+        <div class="card-value attempted" id="total-attempted">0</div>
+      </div>
+    </div>
+
+    <div class="charts-container">
+      <div class="chart-box">
+        <h3>Contest Types (ABC/ARC/AGC)</h3>
+        <canvas id="contestChart"></canvas>
+      </div>
+      <div class="chart-box">
+        <h3>Difficulty Breakdown (Solved)</h3>
+        <canvas id="difficultyChart"></canvas>
+      </div>
+    </div>
+
+    <div class="export-section">
+      <button id="export-csv-btn" class="primary-btn">Export Data (CSV)</button>
+    </div>
+  </div>
+  <script src="../utils/constants.js"></script>
+  <script src="../utils/storage.js"></script>
+  <script src="stats.js"></script>
+</body>
+</html>

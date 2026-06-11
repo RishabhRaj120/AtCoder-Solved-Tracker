@@ -1,0 +1,16 @@
+.ast-solved-link {
+  color: #5cb85c !important;
+  font-weight: bold;
+}
+.ast-attempted-link {
+  color: #f0ad4e !important;
+  font-weight: bold;
+}
+
+.ast-solved-row > td {
+  background-color: rgba(92, 184, 92, 0.15) !important;
+}
+
+.ast-attempted-row > td {
+  background-color: rgba(240, 173, 78, 0.15) !important;
+}

@@ -1,0 +1,22 @@
+name: Build Extension
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    
+    - name: Build Extension ZIP
+      run: |
+        zip -r atcoder-solved-tracker.zip . -x "*.git*" -x ".github/*" -x "README.md"
+        
+    - name: Upload Artifact
+      uses: actions/upload-artifact@v3
+      with:
+        name: atcoder-solved-tracker
+        path: atcoder-solved-tracker.zip

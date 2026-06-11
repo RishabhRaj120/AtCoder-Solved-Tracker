@@ -1,0 +1,60 @@
+{
+  "manifest_version": 3,
+  "name": "AtCoder Solved Tracker",
+  "version": "1.0.0",
+  "description": "Instantly see which AtCoder problems you've solved or attempted directly on problem and contest pages.",
+  "icons": {
+    "16": "assets/icons/icon16.png",
+    "48": "assets/icons/icon48.png",
+    "128": "assets/icons/icon128.png"
+  },
+  "action": {
+    "default_popup": "popup/popup.html",
+    "default_icon": {
+      "16": "assets/icons/icon16.png",
+      "48": "assets/icons/icon48.png",
+      "128": "assets/icons/icon128.png"
+    }
+  },
+  "options_page": "options/options.html",
+  "background": {
+    "service_worker": "background/service-worker.js"
+  },
+  "permissions": [
+    "storage",
+    "alarms",
+    "contextMenus"
+  ],
+  "host_permissions": [
+    "https://atcoder.jp/*"
+  ],
+  "content_scripts": [
+    {
+      "matches": ["https://atcoder.jp/contests/*/tasks/*"],
+      "js": [
+        "utils/constants.js",
+        "utils/storage.js",
+        "utils/api.js",
+        "utils/ui.js",
+        "content/problem-page.js"
+      ],
+      "css": [
+        "content/problem-page.css"
+      ],
+      "run_at": "document_idle"
+    },
+    {
+      "matches": ["https://atcoder.jp/contests/*/tasks", "https://atcoder.jp/contests/*/tasks?*"],
+      "js": [
+        "utils/constants.js",
+        "utils/storage.js",
+        "utils/api.js",
+        "content/contest-page.js"
+      ],
+      "css": [
+        "content/contest-page.css"
+      ],
+      "run_at": "document_idle"
+    }
+  ]
+}

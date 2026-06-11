@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="container">
+    <div id="setup-view" class="hidden">
+      <h3>AtCoder Tracker Setup</h3>
+      <input type="text" id="username-input" placeholder="Enter AtCoder username" />
+      <button id="save-username-btn" class="primary-btn">Save</button>
+      <div id="setup-error" class="error hidden">Please enter a valid username.</div>
+    </div>
+    <div id="dashboard-view" class="hidden">
+      <div class="header">
+        <h3 id="display-username"></h3>
+      </div>
+      <div class="stats">
+        <div class="stat-box">
+          <div class="stat-value solved" id="solved-count">0</div>
+          <div class="stat-label">Solved</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-value attempted" id="attempted-count">0</div>
+          <div class="stat-label">Attempted</div>
+        </div>
+      </div>
+      <div class="sync-info">
+        Last Sync (Local): <span id="last-sync-time">Never</span>
+      </div>
+      <div class="actions">
+        <button id="sync-btn" class="primary-btn">Sync Now</button>
+        <button id="stats-btn">Full Stats</button>
+        <button id="settings-btn">Settings</button>
+        <button id="open-atcoder-btn">Open AtCoder</button>
+      </div>
+    </div>
+  </div>
+  <script src="../utils/constants.js"></script>
+  <script src="../utils/storage.js"></script>
+  <script src="popup.js"></script>
+</body>
+</html>
