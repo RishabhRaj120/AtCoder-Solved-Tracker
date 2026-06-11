@@ -1,55 +1,86 @@
 # AtCoder Solved Tracker
 
-A production-ready Chrome Extension that instantly shows which AtCoder problems you've solved or attempted directly on problem and contest pages.
+A growing archive of my AtCoder solutions and a tracker to keep me accountable.
 
-## Features
-- **Problem Page Status Badge**: See if a problem is Solved, Attempted, or Unseen right next to the title.
-- **Difficulty Badges**: View problem difficulty estimations directly.
-- **Contest Task List Coloring**: Color-codes task list links for quick assessment.
-- **Incremental Synchronization**: Automatically fetches only new submissions in the background to save bandwidth.
-- **Statistics Dashboard**: Visualizes your progress with beautiful Chart.js charts.
-- **CSV Export**: Download your problem-solving data locally.
-- **Latest AC Shortcut**: Instantly open your latest accepted submission for any solved problem.
-- **Privacy First**: No user data leaves the browser except requests made directly to the official AtCoder Problems API.
+<div align="center">
 
-## Installation
+<img src="https://capsule-render.vercel.app/api?type=waving&color=0:00C9FF,100:92FE9D&height=180&section=header&text=AtCoder%20Tracker&fontSize=45&fontColor=ffffff&animation=fadeIn" />
 
-This extension can be loaded directly into Google Chrome as an unpacked extension.
+<img src="https://readme-typing-svg.demolab.com?font=Fira+Code&size=22&pause=900&color=00C9FF&center=true&vCenter=true&width=700&lines=Grinding+AtCoder+one+problem+at+a+time;JavaScript+%7C+Chrome+Extension+%7C+Tracking;Practice.+Learn.+Upsolve.+Repeat." />
 
-1. Download the repository as a ZIP file or clone it using `git clone`.
-2. Open Chrome and navigate to `chrome://extensions`.
-3. Enable **Developer Mode** in the top right corner.
-4. Click **Load unpacked**.
-5. Select the `AtCoder-Solved-Tracker` directory.
+<br>
 
-## Usage
+![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)
+![AtCoder](https://img.shields.io/badge/AtCoder-Tracker-222222?style=for-the-badge)
+![Status](https://img.shields.io/badge/Status-Grinding-success?style=for-the-badge)
+![Repo](https://img.shields.io/badge/Repo-Public-purple?style=for-the-badge)
 
-1. Click on the extension icon in your Chrome toolbar.
-2. Enter your AtCoder username.
-3. The extension will perform an initial sync of all your past submissions.
-4. Browse AtCoder problems and enjoy the tracker!
-5. To force a sync or change your username, open the Settings menu.
+</div>
 
-## Architecture & Storage Model
+---
 
-The extension heavily optimizes performance by storing status data efficiently in `chrome.storage.local`.
+## About This Repository
 
-```json
-{
-  "problemStatuses": {
-    "abc297_a": {
-      "status": "solved",
-      "latestAC": "https://atcoder.jp/contests/abc297/submissions/123456"
-    }
-  },
-  "lastSubmissionEpoch": 1682859345
-}
+This repository contains the source code for the **AtCoder Solved Tracker**, a custom Chrome extension written in **JavaScript**.
+
+I use it to track my competitive programming journey, revise solved problems, and instantly see my AtCoder progress directly on the problem pages.
+
+---
+
+## Folder Structure
+
+The extension is neatly organized into core components:
+
+```text
+AtCoder-Solved-Tracker/
+├── assets/          # Icons and chart libraries
+├── background/      # Service worker and background sync
+├── content/         # Page injectors and DOM manipulation
+├── options/         # Extension settings page
+├── popup/           # Quick action menu
+├── stats/           # Beautiful Chart.js progress dashboards
+└── utils/           # Shared API and Storage logic
 ```
 
-The background service worker syncs on a 6-hour interval, fetching only new submissions (`from_second=lastSubmissionEpoch`). Problem difficulty data is cached for 7 days.
+---
 
-## Privacy Policy
-No user data leaves the browser except requests made directly to AtCoder Problems API (`kenkoooo.com/atcoder`) for synchronization.
+## Features Board
 
-## Screenshots
-*(Insert screenshots here)*
+| Feature | Status |
+| :--- | :--- |
+| Problem Page Status | Built |
+| Difficulty Badges | Built |
+| Contest Task Colors | Built |
+| Background Sync | Built |
+| Local Storage Cache | Built |
+| Progress Charts | Built |
+| CSV Data Export | Built |
+| One-click Latest AC | Built |
+
+---
+
+## Tech Stack
+
+<p align="center">
+  <img src="https://skillicons.dev/icons?i=javascript,html,css,chrome,git,github,vscode" />
+</p>
+
+---
+
+<div align="center">
+
+<img src="https://readme-typing-svg.demolab.com?font=Fira+Code&size=20&pause=800&color=92FE9D&center=true&vCenter=true&width=650&lines=Accepted+is+not+luck.;Every+wrong+answer+teaches+something.;Consistency+beats+random+motivation.;One+problem+closer+to+mastery." />
+
+</div>
+
+---
+
+<div align="center">
+
+<img src="https://readme-typing-svg.demolab.com?font=Fira+Code&size=24&pause=1000&color=00C9FF&center=true&vCenter=true&width=700&lines=Practice.+Fail.+Debug.+Learn.+Repeat.;Building+logic+one+submission+at+a+time.;See+you+at+the+next+Accepted." />
+
+<br><br>
+
+<img src="https://capsule-render.vercel.app/api?type=waving&color=0:00C9FF,50:92FE9D,100:FFFFFF&height=120&section=footer" />
+
+</div>
