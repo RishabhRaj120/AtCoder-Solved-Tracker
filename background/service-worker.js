@@ -11,6 +11,9 @@ chrome.runtime.onInstalled.addListener(async () => {
     contexts: ['page'],
     documentUrlPatterns: ['https://atcoder.jp/contests/*/tasks/*']
   });
+
+  // Fetch difficulties immediately on install
+  syncDifficulties();
 });
 
 chrome.contextMenus.onClicked.addListener((info, tab) => {
@@ -39,10 +42,7 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
   }
 });
 
-async function syncData(forceFull = false) {
-  const username = await globalThis.AtcoderStorage.getUsername();
-  if (!username) return;
-
+async function syncDifficulties(forceFull = false) {
   try {
     const lastDiffUpdate = await globalThis.AtcoderStorage.getDifficultyLastUpdated();
     const SEVEN_DAYS_MS = 7 * 24 * 60 * 60 * 1000;
@@ -56,7 +56,18 @@ async function syncData(forceFull = false) {
       }
       await globalThis.AtcoderStorage.setDifficulties(difficulties);
     }
+  } catch (error) {
+    console.error('Failed to fetch difficulties:', error);
+  }
+}
 
+async function syncData(forceFull = false) {
+  await syncDifficulties(forceFull);
+
+  const username = await globalThis.AtcoderStorage.getUsername();
+  if (!username) return;
+
+  try {
     let fromSecond = forceFull ? 0 : await globalThis.AtcoderStorage.getLastSubmissionEpoch();
     const currentStatuses = forceFull ? {} : await globalThis.AtcoderStorage.getProblemStatuses();
     let maxEpoch = fromSecond;
